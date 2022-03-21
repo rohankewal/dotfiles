@@ -96,13 +96,13 @@ nvim_lsp.flow.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "typescript.ts", "javascript", "javascriptreact", "javascript.jsx", "javascript.js" },
+  filetypes = { "dart", "flutter", "typescript", "typescriptreact", "typescript.tsx", "typescript.ts", "javascript", "javascriptreact", "javascript.jsx", "javascript.js" },
   capabilities = capabilities
 }
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'pandoc' },
+  filetypes = { 'dart', 'flutter', 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'pandoc' },
   init_options = {
     linters = {
       eslint = {
