@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+gum spin --spinner globe --title " creating project..." --show-output -- npm create vite@latest my-new-project -- --template react
+echo "✅ new project created"
