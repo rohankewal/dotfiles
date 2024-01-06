@@ -1,66 +1,47 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  enabled = true,
-  event = "VeryLazy",
-  opts = function(plugin)
-    if plugin.override then
-      require("lazyvim.util").deprecate("lualine.override", "lualine.opts")
-    end
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
 
-    local icons = require("config.icons")
-
-    local diagnostics = {
-      "diagnostics",
-      sources = { "nvim_diagnostic" },
-      sections = { "error", "warn", "info", "hint" },
-      symbols = {
-        error = icons.diagnostics.Error,
-        hint = icons.diagnostics.Hint,
-        info = icons.diagnostics.Info,
-        warn = icons.diagnostics.Warn,
-      },
-      colored = true,
-      update_in_insert = false,
-      always_visible = false,
-    }
-
-    local diff = {
-      "diff",
-      symbols = {
-        added = icons.git.added .. " ",
-        untracked = icons.git.added .. " ",
-        modified = icons.git.changed .. " ",
-        removed = icons.git.deleted .. " ",
-      },
-      colored = true,
-      always_visible = false,
-      source = function()
-        local gitsigns = vim.b.gitsigns_status_dict
-        if gitsigns then
-          return {
-            added = gitsigns.added,
-            modified = gitsigns.changed,
-            removed = gitsigns.removed,
-          }
-        end
-      end,
-    }
-
-    return {
+    require("lualine").setup({
       options = {
-        theme = "auto",
-        globalstatus = true,
-        component_separators = { left = "", right = "" },
-        disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
+        icons_enabled = true,
+        theme = "catppuccin",
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        disabled_filetypes = {
+          statusline = {},
+          winbar = {},
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        globalstatus = false,
+        refresh = {
+          statusline = 1000,
+          tabline = 1000,
+          winbar = 1000,
+        },
       },
       sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+      inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { diff, diagnostics },
-        lualine_x = {},
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {},
       },
-    }
-  end,
+      tabline = {},
+      winbar = {},
+      inactive_winbar = {},
+      extensions = {},
+    }),
+  },
 }

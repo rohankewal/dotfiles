@@ -8,7 +8,7 @@ return {
   opts = function()
     local colors = require("config.colors")
     return {
-      flavour = "frappe",
+      flavour = "macchiato",
       transparent_background = true,
       color_overrides = { all = colors },
       custom_highlights = function(colors)
@@ -50,10 +50,10 @@ return {
             information = { "italic" },
           },
           underlines = {
-            errors = { "underline" },
-            hints = { "underline" },
-            warnings = { "underline" },
-            information = { "underline" },
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
           },
         },
       },

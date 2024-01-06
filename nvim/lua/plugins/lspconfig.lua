@@ -21,6 +21,9 @@ return {
           "typescript.react",
           "javascript.react",
         },
+        pyright = {
+          filetypes = { "py" },
+        },
       },
     },
   },

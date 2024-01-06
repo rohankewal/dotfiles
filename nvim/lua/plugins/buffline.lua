@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   opts = function()
     local Offset = require("bufferline.offset")
     if not Offset.edgy then
@@ -33,10 +33,15 @@ return {
         separator_style = { "", "" },
         offsets = { { text_align = "left", separator = false } },
         indicator = { style = "none" },
-        show_buffer_close_icons = false,
-        show_close_icon = false,
+        show_buffer_close_icons = true,
+        show_close_icon = true,
         show_tab_indicators = false,
         always_show_bufferline = false,
+        diagnostics = "nvim_lsp",
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+          local icon = level:match("error") and " " or " "
+          return " " .. icon .. count
+        end,
       },
     }
   end,
