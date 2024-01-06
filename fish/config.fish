@@ -23,9 +23,12 @@ set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
 set -Ux VISUAL nvim
 
+set -x GOPATH $HOME/go
+set -x PATH $PATH $GOPATH/bin
+
 # golang - https://golang.google.cn/
-set -Ux GOPATH (go env GOPATH)
-fish_add_path $GOPATH/bin
+# set -Ux GOPATH (go env GOPATH)
+# fish_add_path $GOPATH/bin
 
 # nodejs - https://nodejs.com
 fish_add_path $HOME/.npm-global/bin:$PATH

@@ -9,7 +9,7 @@ local act = wezterm.action
 local config = {
 	-- font
 	font = f.get_font(),
-	font_size = 23,
+	font_size = 25,
 
 	-- colors
 	color_scheme = cs.get_color_scheme(),

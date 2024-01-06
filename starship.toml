@@ -9,9 +9,13 @@
 # https://starship.rs
 
 [character]
-success_symbol = ""
-vicmd_symbol = ""
-error_symbol = "󰩈"
+success_symbol = "👉"
+vicmd_symbol = "✌️"
+error_symbol = "🚨"
+
+# success_symbol = ""
+# vicmd_symbol = ""
+# error_symbol = "󰩈"
 # success_symbol = "[\uf054](white)" # 
 # vicmd_symbol = "[\ue62b](white)" # 
 # error_symbol = "[\uf467](red)" # 
